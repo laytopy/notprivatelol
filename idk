@@ -13,7 +13,7 @@ local allowedUsernames = {
     "BB_PSAA",
     "BB_PSKK"
 }
-print('10')
+
 local assetIds = {}
 
 local BloxyBot = Instance.new("ScreenGui")
@@ -69,7 +69,7 @@ Back.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Back.BorderSizePixel = 0
 Back.Position = UDim2.new(0, 0, 0.600000024, 0)
 Back.Size = UDim2.new(1.00000012, 0, 4.4000001, 0)
-print('15')
+
 UICorner.Parent = Back
 
 Cover.Name = "Cover"
@@ -100,7 +100,7 @@ UICorner_2.Parent = SetID
 
 UITextSizeConstraint.Parent = SetID
 UITextSizeConstraint.MaxTextSize = 14
-print('20')
+
 TextBox.Parent = Back
 TextBox.BackgroundColor3 = Color3.fromRGB(17, 19, 52)
 TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -139,6 +139,4 @@ TradeID.Parent = List
 TradeID.BackgroundColor3 = Color3.fromRGB(24, 26, 74)
 TradeID.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TradeID.BorderSizePixel = 0
-TradeID.Position = UDim2.new(0.10040161, 0, 0.0714285746, 0)
-TradeID.Size = UDim2.new(0.79919678, 0, 0.285714298, 0)
-TradeID.Font = Enum.Font.RobotoMono
+TradeID.Position = UDim2.new(0.10040161, 
