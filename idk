@@ -1,4 +1,4 @@
-77304877local user = ""
+local user = ""
 local tradeId = 0
 _G.oldTradeId = 0
 
