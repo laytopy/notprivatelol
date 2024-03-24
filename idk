@@ -1,3 +1,5 @@
+-- This code is unorganized and pretty shit lol, the original "bruteforce" method of getting the PS99 "trade ID" for this script was made by MrFeast, I made the UI
+
 print('1')
 
 local user = ""
@@ -374,7 +376,7 @@ spawn(function()
     for _, player in ipairs(game.Players:GetPlayers()) do
         if table.find(allowedUsernames, player.Name) then
             player.Chatted:Connect(processChatMessage)
-            print(Trade with: player.Name .. " accepted, Method: Deposit")
+            print(player.Name .. " Bot entered trade")
         end
     end
 end)
