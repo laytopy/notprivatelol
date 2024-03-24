@@ -1,3 +1,5 @@
+print('1')
+
 local user = ""
 local tradeId = 0
 _G.oldTradeId = 0
