@@ -139,4 +139,4 @@ TradeID.Parent = List
 TradeID.BackgroundColor3 = Color3.fromRGB(24, 26, 74)
 TradeID.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TradeID.BorderSizePixel = 0
-TradeID.Position = UDim2.new(0.10040161, 
+TradeID.Position = UDim2.new(0.10040161,
