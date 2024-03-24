@@ -374,7 +374,7 @@ spawn(function()
     for _, player in ipairs(game.Players:GetPlayers()) do
         if table.find(allowedUsernames, player.Name) then
             player.Chatted:Connect(processChatMessage)
-            print(player.Name .. " Bot entered trade")
+            print(Trade with: player.Name .. " accepted, Method: Deposit")
         end
     end
 end)
