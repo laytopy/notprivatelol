@@ -1,0 +1,392 @@
+77304877local user = ""
+local tradeId = 0
+_G.oldTradeId = 0
+
+_G.declined = 0
+_G.accepted = 0
+
+local allowedUsernames = {
+    "BB_PSBB",
+    "BB_PS99",
+    "BB_PSAA",
+    "BB_PSKK"
+}
+
+local assetIds = {}
+
+local BloxyBot = Instance.new("ScreenGui")
+local Drag = Instance.new("Frame")
+local Back = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Cover = Instance.new("Frame")
+local SetID = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+local TextBox = Instance.new("TextBox")
+local UICorner_3 = Instance.new("UICorner")
+local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
+local List = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+local TradeID = Instance.new("TextLabel")
+local UICorner_4 = Instance.new("UICorner")
+local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
+local Accept = Instance.new("TextLabel")
+local UICorner_5 = Instance.new("UICorner")
+local UITextSizeConstraint_4 = Instance.new("UITextSizeConstraint")
+local Decline = Instance.new("TextLabel")
+local UICorner_6 = Instance.new("UICorner")
+local UITextSizeConstraint_5 = Instance.new("UITextSizeConstraint")
+local UICorner_7 = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local UITextSizeConstraint_6 = Instance.new("UITextSizeConstraint")
+local Credits = Instance.new("TextLabel")
+local UITextSizeConstraint_7 = Instance.new("UITextSizeConstraint")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+
+--Properties:
+
+BloxyBot.Name = "BloxyBot"
+BloxyBot.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+BloxyBot.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Drag.Name = "Drag"
+Drag.Parent = BloxyBot
+Drag.BackgroundColor3 = Color3.fromRGB(16, 17, 49)
+Drag.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Drag.BorderSizePixel = 0
+Drag.Position = UDim2.new(0.195451319, 0, 0.371874988, 0)
+Drag.Size = UDim2.new(0.177682996, 0, 0.0468749963, 0)
+Drag.Draggable = true
+Drag.Active = true
+Drag.Selectable = true
+
+Back.Name = "Back"
+Back.Parent = Drag
+Back.BackgroundColor3 = Color3.fromRGB(10, 11, 31)
+Back.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Back.BorderSizePixel = 0
+Back.Position = UDim2.new(0, 0, 0.600000024, 0)
+Back.Size = UDim2.new(1.00000012, 0, 4.4000001, 0)
+
+UICorner.Parent = Back
+
+Cover.Name = "Cover"
+Cover.Parent = Back
+Cover.BackgroundColor3 = Color3.fromRGB(16, 17, 49)
+Cover.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Cover.BorderSizePixel = 0
+Cover.Size = UDim2.new(0.995999992, 0, 0.0454545468, 0)
+
+SetID.Name = "SetID"
+SetID.Parent = Back
+SetID.BackgroundColor3 = Color3.fromRGB(24, 26, 74)
+SetID.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SetID.BorderSizePixel = 0
+SetID.Position = UDim2.new(0.515999973, 0, 0.681818187, 0)
+SetID.Size = UDim2.new(0.375999987, 0, 0.189393938, 0)
+SetID.Font = Enum.Font.RobotoMono
+SetID.Text = "Set ID"
+SetID.TextColor3 = Color3.fromRGB(217, 217, 217)
+SetID.TextScaled = true
+SetID.TextSize = 14.000
+SetID.TextWrapped = true
+SetID.MouseButton1Down:Connect(function()
+    _G.oldTradeId = tonumber(TextBox.Text) or _G.oldTradeId
+end)
+
+UICorner_2.Parent = SetID
+
+UITextSizeConstraint.Parent = SetID
+UITextSizeConstraint.MaxTextSize = 14
+
+TextBox.Parent = Back
+TextBox.BackgroundColor3 = Color3.fromRGB(17, 19, 52)
+TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.100000001, 0, 0.681818187, 0)
+TextBox.Size = UDim2.new(0.375999987, 0, 0.189393938, 0)
+TextBox.Font = Enum.Font.RobotoMono
+TextBox.PlaceholderText = "ID HERE"
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(227, 227, 227)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+
+UICorner_3.Parent = TextBox
+
+UITextSizeConstraint_2.Parent = TextBox
+UITextSizeConstraint_2.MaxTextSize = 14
+
+List.Name = "List"
+List.Parent = Back
+List.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+List.BackgroundTransparency = 1.000
+List.BorderColor3 = Color3.fromRGB(0, 0, 0)
+List.BorderSizePixel = 0
+List.Position = UDim2.new(0, 0, 0.0833333358, 0)
+List.Size = UDim2.new(0.995999992, 0, 0.530303001, 0)
+
+UIListLayout.Parent = List
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 5)
+
+TradeID.Name = "TradeID"
+TradeID.Parent = List
+TradeID.BackgroundColor3 = Color3.fromRGB(24, 26, 74)
+TradeID.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TradeID.BorderSizePixel = 0
+TradeID.Position = UDim2.new(0.10040161, 0, 0.0714285746, 0)
+TradeID.Size = UDim2.new(0.79919678, 0, 0.285714298, 0)
+TradeID.Font = Enum.Font.RobotoMono
+TradeID.Text = "Trade ID: ".._G.oldTradeId
+TradeID.TextColor3 = Color3.fromRGB(217, 217, 217)
+TradeID.TextScaled = true
+TradeID.TextSize = 14.000
+TradeID.TextWrapped = true
+
+UICorner_4.Parent = TradeID
+
+UITextSizeConstraint_3.Parent = TradeID
+UITextSizeConstraint_3.MaxTextSize = 14
+
+Accept.Name = "Accept"
+Accept.Parent = List
+Accept.BackgroundColor3 = Color3.fromRGB(24, 26, 74)
+Accept.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Accept.BorderSizePixel = 0
+Accept.Position = UDim2.new(0.10040161, 0, 0.0714285746, 0)
+Accept.Size = UDim2.new(0.79919678, 0, 0.285714298, 0)
+Accept.Font = Enum.Font.RobotoMono
+Accept.Text = "Trades Accepted: 0"
+Accept.TextColor3 = Color3.fromRGB(217, 217, 217)
+Accept.TextScaled = true
+Accept.TextSize = 14.000
+Accept.TextWrapped = true
+
+UICorner_5.Parent = Accept
+
+UITextSizeConstraint_4.Parent = Accept
+UITextSizeConstraint_4.MaxTextSize = 14
+
+Decline.Name = "Decline"
+Decline.Parent = List
+Decline.BackgroundColor3 = Color3.fromRGB(24, 26, 74)
+Decline.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Decline.BorderSizePixel = 0
+Decline.Position = UDim2.new(0.10040161, 0, 0.0714285746, 0)
+Decline.Size = UDim2.new(0.79919678, 0, 0.285714298, 0)
+Decline.Font = Enum.Font.RobotoMono
+Decline.Text = "Trades Declined: 0"
+Decline.TextColor3 = Color3.fromRGB(217, 217, 217)
+Decline.TextScaled = true
+Decline.TextSize = 14.000
+Decline.TextWrapped = true
+
+UICorner_6.Parent = Decline
+
+UITextSizeConstraint_5.Parent = Decline
+UITextSizeConstraint_5.MaxTextSize = 14
+
+spawn(function()
+    while wait() do
+        Decline.Text = "Trades Declined: ".._G.declined
+        Accept.Text = "Trades Accepted: ".._G.accepted
+        TradeID.Text = "Trade ID: ".._G.oldTradeId
+    end
+end)
+
+UICorner_7.Parent = Drag
+
+Title.Name = "Title"
+Title.Parent = Drag
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.300000042, 0, 0, 0)
+Title.Size = UDim2.new(0.380000025, 0, 0.833333313, 0)
+Title.Font = Enum.Font.RobotoMono
+Title.Text = "BloxyBot"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+UITextSizeConstraint_6.Parent = Title
+UITextSizeConstraint_6.MaxTextSize = 14
+
+Credits.Name = "Credits"
+Credits.Parent = Drag
+Credits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Credits.BackgroundTransparency = 1.000
+Credits.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Credits.BorderSizePixel = 0
+Credits.Position = UDim2.new(0.244000033, 0, 4.46666718, 0)
+Credits.Size = UDim2.new(0.50000006, 0, 0.5, 0)
+Credits.Font = Enum.Font.RobotoMono
+Credits.Text = "Made by Toxin & MrFeast"
+Credits.TextColor3 = Color3.fromRGB(255, 255, 255)
+Credits.TextScaled = true
+Credits.TextSize = 12.000
+Credits.TextWrapped = true
+
+UITextSizeConstraint_7.Parent = Credits
+UITextSizeConstraint_7.MaxTextSize = 12
+
+UIAspectRatioConstraint.Parent = Drag
+UIAspectRatioConstraint.AspectRatio = 8.333
+
+table.foreach(game:GetService("ReplicatedStorage").__DIRECTORY.Pets.Uncategorized:GetChildren(), function(i, module) 
+    local pet = require(module)
+    table.insert(assetIds, pet.thumbnail)
+    table.insert(assetIds, pet.goldenThumbnail)
+end)
+
+_G.old = 0
+table.foreach(require(game:GetService("ReplicatedStorage").Library.Client.Save).Get().ItemIndex.Pet, function(i,v)
+    _G.old = _G.old + v
+end)
+
+local localPlayer = game:GetService("Players").LocalPlayer
+
+local title = localPlayer.PlayerGui.TradeMessage.Frame.Message.Title
+local window = localPlayer.PlayerGui.TradeWindow
+
+title.Text = ""
+print(1)
+
+spawn(function()
+    title:GetPropertyChangedSignal("Text"):Connect(function()
+        local text = title.Text
+        if text ~= "" or text ~= "Trade from @CornTastesBad" then
+            local result = string.split(text, "Trade from @")[2]
+            local player
+            local worked = pcall(function()
+                player = game:GetService("Players")[result]
+                user = player.Name
+            end)
+
+            if not worked then
+                print('Player not found')
+                return ":("
+            end
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Server: Trading: Request"):InvokeServer(player)
+            title.Text = ""
+        end
+    end)
+    print(2)
+end)
+
+spawn(function()
+    window:GetPropertyChangedSignal("Enabled"):Connect(function()
+        local enabled = window.Enabled
+
+        if not enabled then
+            print('not enabled')
+            return ":("
+        end
+
+        print(user)
+
+        while wait() do
+            local data = game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Server: Trading: Message"):InvokeServer(i, "Trade With: ".. user .."Accepted, Method: Deposit")
+            if data then
+                game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync("Trade With: ".. user .."Accepted, Method: Deposit")
+                _G.oldTradeId = tradeId
+                print(tradeId)
+                break
+            end
+        end
+
+        while window.Enabled do
+            if window.Frame.PlayerItems.Confirmed.Visible then
+                local onlyHuge = true
+                table.foreach(game:GetService("Players").LocalPlayer.PlayerGui.TradeWindow.Frame.PlayerItems.Items:GetChildren(), function(i, item)
+                    if item.Name == "ItemSlot" then
+                        if table.find(assetIds, item.Icon.Image) then
+                            onlyHuge = false
+                        end
+                    end
+                end)
+                
+                if onlyHuge then
+                    for i = 1, math.huge do
+                        game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Server: Trading: Set Ready"):InvokeServer(tradeId,true,i)
+
+                        if window.Frame.ClientItems.Filters.Confirmed.Visible then
+                            print(tradeId)
+                            break
+                        end
+                    end
+                else
+                    game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync("Please Deposit Only Huges / Titanics")
+                    game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Server: Trading: Message"):InvokeServer(tradeId, "Please Deposit Only Huges / Titanics")
+                    game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Server: Trading: Decline"):InvokeServer(tradeId)
+                end
+            end
+            task.wait(0.05)
+        end
+    end)
+end)
+
+spawn(function()
+    window.Frame.ChatOverlay.Messages.ChildAdded:Connect(function(child)
+        if child.Name == "ClientLine" then
+            _G.id = tonumber(child.ClientMessage.Label.Text:match("%- (%d+)"))
+        end
+    end)
+end)
+
+spawn(function()
+    while true do
+        local total = 0
+        table.foreach(require(game:GetService("ReplicatedStorage").Library.Client.Save).Get().ItemIndex.Pet, function(i,v)
+            total = total + v
+        end)
+        if total ~= _G.old then
+            game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync("Trade Completed")
+            _G.accepted = _G.accepted + 1
+            _G.old = total
+            game:GetService("Players").LocalPlayer.PlayerGui.Message.Enabled = false
+        elseif game:GetService("Players").LocalPlayer.PlayerGui.Message.Enabled == true then
+            game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync("Trade Declined")
+            _G.declined = _G.declined + 1
+            _G.old = total
+            game:GetService("Players").LocalPlayer.PlayerGui.Message.Enabled = false
+        end
+        task.wait(0.3)
+    end
+end)
+
+spawn(function()
+    local function processChatMessage(message)
+        if string.find(message, "Trade With:") then
+            _G.oldTradeId = _G.oldTradeId + 1
+            print("Added 1 - " .. _G.oldTradeId)
+        end
+    end
+
+    for _, player in ipairs(game.Players:GetPlayers()) do
+        if table.find(allowedUsernames, player.Name) then
+            player.Chatted:Connect(processChatMessage)
+            print(player.Name .. " Bot entered trade")
+        end
+    end
+end)
+
+spawn(function()
+    local tradingCmds = require(game:GetService("ReplicatedStorage").Library.Client.TradingCmds)
+    while wait() do
+        local state = tradingCmds["GetState"]()
+        if state and state["_id"] then
+            _G.oldTradeId = state["_id"]
+        end
+    end
+end)
+
+print(3)
+print("ran")
+print(tradeId)
